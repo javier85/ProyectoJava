@@ -1,0 +1,38 @@
+body{
+    background-color: #646C8F;
+}
+table{
+    background-color: #646C8F;
+    width:70%;
+    height: 100%;
+}
+.letra{
+    font-family: Abeezee;
+    font-size:large;
+    color: white;
+}
+.datos{
+    background-color: #646C8F;
+    width: 84%;
+    height: 30px;
+    border-radius: 0%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.submit{
+    background-color: #646C8F;
+    font-family: Abel;
+    color:white;
+    width: 110px;
+    height: 30px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.logo{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+}
+.fondo{
+    width: 100%;
+}

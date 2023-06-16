@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos</title>
+    <link rel="stylesheet" href="css/pedidos.css">
 </head>
 <body>
     <?php
@@ -12,20 +13,19 @@
     ?>
     <a href="inicio.php">Regresar</a>
     <center>
-        <header>
-            <h1>Sistema de Inventarios</h1>
-            <h2>Pedidos</h2>
-        </header>
         <form method="post">
        <table width="10%">
-        <tr>
-            <td><label>ID</label></td>
-            <td><label>ProductoID:</label></td>
+       <tr>
+            <td colspan="2" align="center"><img src="img/logoproductos.png" class="logo"></td> 
         </tr>
         <tr>
-            <td><input type="text" size="6" name="id"></td>
+            <td><label class="letra">ID</label></td>
+            <td><label class="letra">Producto:</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" size="6" name="id" class="id"></td>
             <td>
-                <select name="productoID">
+                <select name="productoID" class="producto">
                     <option selected>Seleccione un producto</option>
                         <?php
                             $consulta="select id, nombre from productos";
@@ -42,16 +42,16 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2"><label>Cantidad: </label></td>
+            <td colspan="2"><label class="letra">Cantidad: </label></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="number" name="cantidad"></td>
+            <td colspan="2"><input type="number" name="cantidad" class="cantidad"></td>
         </tr>
         <tr>
-            <td colspan="2"><label>Fecha del Pedido (aa-mm-dd):</label></td>
+            <td colspan="2"><label class="letra">Fecha del Pedido (aa-mm-dd):</label></td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" class="letra">
             <?php
                 $fechaActual = date('Y-m-d');
                 echo $fechaActual;
@@ -59,17 +59,21 @@
             </td>
         </tr>
         <tr>
-            <td><input type="submit" name="crear" value="Crear"></td>
-            <td align="right"><input type="submit" name="listar" value="Listar" name="listar"></td>
+            <td><input type="submit" name="crear" value="Crear" class="botones"></td>
+            <td align="right"><input type="submit" name="listar" value="Listar" name="listar" class="botones"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Actualizar" name="actualizar" class="botones"></td>
+            <td align="right"><input type="submit" value="Eliminar" name="eliminar" class="botones"></td>
         </tr>
         <tr>
             <td colspan="2">
                 <table border="1">
                     <tr>
-                        <td>ID</td>
-                        <td>ProductoID</td>
-                        <td>Cantidad</td>
-                        <td>Fecha</td>
+                        <td class="letrat">ID</td>
+                        <td class="letrat">ProductoID</td>
+                        <td class="letrat">Cantidad</td>
+                        <td class="letrat">Fecha</td>
                     </tr>
                     <?php
                         if(isset($_POST["listar"])){
@@ -79,10 +83,10 @@
                             $resultado=mysqli_query($conexion,$consulta);
                             while($row=mysqli_fetch_assoc($resultado)){
                                 echo "<tr>";
-                                echo "<td>".$row['id']."</td>";
-                                echo "<td>".$row['nombre']."</td>";
-                                echo "<td>".$row['cantidad']."</td>";
-                                echo "<td>".$row['fechaPedido']."</td>";
+                                echo "<td class='letrabd'>".$row['id']."</td>";
+                                echo "<td class='letrabd'>".$row['nombre']."</td>";
+                                echo "<td class='letrabd'>".$row['cantidad']."</td>";
+                                echo "<td class='letrabd'>".$row['fechaPedido']."</td>";
                                 echo "</tr>";
                             }
                         }
@@ -90,18 +94,14 @@
                 </table>
             </td>
         </tr>
-        <tr>
-            <td><input type="submit" value="Actualizar" name="actualizar"></td>
-            <td align="right"><input type="submit" value="Eliminar" name="eliminar"></td>
-        </tr>
+        
        </table>     
         </form>
     </center>
 </body>
 <?php
-    
     if(isset($_POST["crear"])){
-        if($_POST["productoID"]>=7 && $_POST["cantidad"]>=1){
+        if($_POST["productoID"]>=1 && $_POST["cantidad"]>=1){
             mysqli_query($conexion,"insert into pedidos(productoID,cantidad) 
             values ($_REQUEST[productoID],$_REQUEST[cantidad])")
             or die("Problemas con la inserción de datos".mysqli_error($conexion));

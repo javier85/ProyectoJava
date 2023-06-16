@@ -5,31 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
 <body>
-    <header><center>
-        <h1>Sistema de Inventario</h1>
-        <h2>Inicio de Sesión</h2>
-    </center></header>
     <center>
         <form method="post">
             <table>
-                <tr>
-                    <td><label>Username:</label></td>
+                <tr rowspan="3">
+                    <td colspan="2">
+                        <img src="img/fondo.png" class="fondo">
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="username"></td>
+                    <td colspan="2" align="center"><img src="img/imagenindex.png" class="logo"></td> 
                 </tr>
                 <tr>
-                    <td><label>Password:</label></td>
+                    <td><label class="letra">Username:</label></td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="password"></td>
+                    <td><input type="text"  class="datos" name="username"></td>
                 </tr>
                 <tr>
-                    <td align="center"><input type="submit" value="Ingresar" name="ingresar"></td>
+                    <td><label class="letra">Password:</label></td>
                 </tr>
                 <tr>
-                    <td align="center"><a href="registro.php">Registrarse</a></td>
+                    <td><input type="password" class="datos" name="password"></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="submit" value="Ingresar" name="ingresar" class="submit"></td>
+                </tr>
+                <tr>
+                    <td align="center"><a href="registro.php" class="link">Registrarse</a></td>
                 </tr>
             </table>
         </form>

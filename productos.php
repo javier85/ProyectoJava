@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
+    <link rel="stylesheet" href="css/productos.css">
 </head>
 <body>
     <?php 
@@ -12,25 +13,24 @@
     ?>
     <a href="inicio.php">Regresar</a>
     <center>
-        <header>
-            <h1>Sistema de Inventarios</h1>
-            <h2>Productos</h2>
-        </header>
         <form method="post">
             <table width="10%">
                 <tr>
-                    <td><label>ID:</label></td>
-                    <td><label>Nombre:</label></td>
+                    <td colspan="2" align="center"><img src="img/logoproductos.png" class="logo"></td> 
                 </tr>
                 <tr>
-                    <td><input type="number" style="width:90%" name="id"></td>
-                    <td><input type="text" name="nombre" size="12.5%"></td>
+                    <td><label class="letra">ID:</label></td>
+                    <td><label class="letra">Nombre:</label></td>
                 </tr>
-                <tr><td><label>Precio:</label></td></tr>
-                <tr><td colspan="2"><input type="number" name="precio" style="width:95%"></td></tr>
-                <tr><td><label>Proveedor:</label></td></tr>
+                <tr>
+                    <td><input type="number" name="id" class="id"></td>
+                    <td><input type="text" name="nombre" class="nombre"></td>
+                </tr>
+                <tr><td><label class="letra">Precio:</label></td></tr>
+                <tr><td colspan="2"><input type="number" name="precio" class="precio"></td></tr>
+                <tr><td><label class="letra">Proveedor:</label></td></tr>
                 <tr><td colspan="2">
-                    <select name="proveedorID">
+                    <select name="proveedorID" class="proveedor">
                         <option selected>Seleccione un proveedor</option>
                         <?php
                             $consulta="select id, nombre_proveedor from proveedores";
@@ -46,17 +46,21 @@
                     </select>
                 </td></tr>
                 <tr>
-                    <td><input type="submit" value="Crear" name="crear"></td>
-                    <td align="right"><input type="submit" value="Listar" name="listar"></td>
-                </tr></td>
+                    <td><input type="submit" value="Crear" name="crear" class="botones"></td>
+                    <td align="right"><input type="submit" value="Listar" name="listar" class="botones"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Actualizar" name="actualizar" class="botones"></td>
+                    <td align="right"><input type="submit" value="Eliminar" name="eliminar" class="botones"></td>
+                </tr>
                 <tr>
                     <td colspan="2">
                         <table border="1" width="10%">
                             <tr>
-                                <td>ID</td>
-                                <td>Nombre</td>
-                                <td>Precio</td>
-                                <td>Proveedor</td>
+                                <td class="letrat">ID</td>
+                                <td class="letrat">Nombre</td>
+                                <td class="letrat">Precio</td>
+                                <td class="letrat">Proveedor</td>
                             </tr>
                             <?php
                                 if(isset($_POST["listar"])){
@@ -66,10 +70,10 @@
                                     $resultado=mysqli_query($conexion,$consulta);
                                     while($row=mysqli_fetch_assoc($resultado)){
                                         echo "<tr>";
-                                        echo "<td>".$row['id']."</td>";
-                                        echo "<td>".$row['nombre']."</td>";
-                                        echo "<td>".$row['precio']."</td>";
-                                        echo "<td>".$row['nombre_proveedor']."</td>";
+                                        echo "<td class='letrabd'>".$row['id']."</td>";
+                                        echo "<td class='letrabd'>".$row['nombre']."</td>";
+                                        echo "<td class='letrabd'>".$row['precio']."</td>";
+                                        echo "<td class='letrabd'>".$row['nombre_proveedor']."</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -78,10 +82,7 @@
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td><input type="submit" value="Actualizar" name="actualizar"></td>
-                    <td align="right"><input type="submit" value="Eliminar" name="eliminar"></td>
-                </tr>
+                
             </table>
         </form>
     </center>

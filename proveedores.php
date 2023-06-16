@@ -5,44 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proveedores</title>
+    <link rel="stylesheet" href="css/proveedores.css">
 </head>
 <body>
     <?php
         $conexion=mysqli_connect("localhost","root","","inventario") or die("Problemas con la conexión");
     ?>
     <a href="inicio.php">Regresar</a>
-    <header><center>
-        <h1>Sistema de Inventarios</h1>
-        <h2>Proveedores</h2>
-    </center></header>
     <center>
         <form method="post">
             <table width="10%">
                 <tr>
-                    <td><label>ID:</label></td>
-                    <td><label>Nombre:</label></td>
+                    <td colspan="2" align="center"><img src="img/logoproveedores.png" class="logo"></td> 
                 </tr>
                 <tr>
-                    <td><input type="number" name="id" style="width:90%"></td>
-                    <td><input type="text" name="nombre" size="12%"></td>
+                    <td><label class="letra">ID:</label></td>
+                    <td><label class="letra">Nombre:</label></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><label>Dirección</label></td>
+                    <td><input type="number" name="id" class="id"></td>
+                    <td><input type="text" name="nombre" class="nombre"></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="direccion" size="22%"></td>
+                    <td colspan="2"><label class="letra">Dirección</label></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Crear" name="crear"></td>
-                    <td align="right"><input type="submit" value="Listar" name="listar"></td>
+                    <td colspan="2"><input type="text" name="direccion" class="direccion"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Crear" name="crear" class="botones"></td>
+                    <td align="right"><input type="submit" value="Listar" name="listar" class="botones"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Actualizar" name="actualizar" class="botones"></td>
+                    <td align="right"><input type="submit" value="Eliminar" name="eliminar" class="botones"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <table border="1">
                             <tr>
-                                <td>ID</td>
-                                <td>Nombre</td>
-                                <td>Direccion</td>
+                                <td class="letrat">ID</td>
+                                <td class="letrat">Nombre</td>
+                                <td class="letrat">Direccion</td>
                             </tr>
                             <?php
                                 if(isset($_POST["listar"])){
@@ -50,9 +54,9 @@
                                     $resultado=mysqli_query($conexion,$consulta);
                                     while($row=mysqli_fetch_assoc($resultado)){
                                         echo "<tr>";
-                                        echo "<td>".$row['id']."</td>";
-                                        echo "<td>".$row['nombre_proveedor']."</td>";
-                                        echo "<td>".$row['direccion']."</td>";
+                                        echo "<td class='letrabd'>".$row['id']."</td>";
+                                        echo "<td class='letrabd'>".$row['nombre_proveedor']."</td>";
+                                        echo "<td class='letrabd'>".$row['direccion']."</td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -61,10 +65,7 @@
                         </table>
                     </td>
                 </tr>
-                <tr>
-                    <td><input type="submit" value="Actualizar" name="actualizar"></td>
-                    <td align="right"><input type="submit" value="Eliminar" name="eliminar"></td>
-                </tr>
+                
             </table>
         </form>
     </center>

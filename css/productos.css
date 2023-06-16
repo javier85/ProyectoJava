@@ -1,0 +1,57 @@
+body{
+    background-color: #FFE3CC;
+}
+form{
+    background-color: #646C8F;
+    width: 65%;
+    border-radius: 30px;
+}
+.logo{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+}
+.letra{
+    font-family: Abeezee;
+    font-size:large;
+    margin-left: 0px;
+    color: white;
+}
+.letrat{
+    font-family: Abel;
+    font-size: small;
+}
+table table{
+    background-color: #FFFFFF;
+    border:0cm;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.letrabd{
+    font-size: small;
+}
+.id{
+    width: 85%;
+    height: 22px;
+    background-color: #D9D9D9;
+}
+.nombre{
+    height: 22px;
+    background-color: #D9D9D9;
+}
+.precio{
+    height: 22px;
+    width: 97%;
+    background-color: #D9D9D9;
+}
+.proveedor{
+    height: 25px;
+    width: 100%;
+    background-color: #D9D9D9;
+}
+.botones{
+    height: 30px;
+    width: 85px;
+    background-color: #FFE3CC;
+    font-size: medium;
+}
