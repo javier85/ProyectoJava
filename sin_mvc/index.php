@@ -42,8 +42,6 @@
     </center>
 </body>
 <?php
-
-    //Dar funcion al boton de ingresar validando el usuario y la contraseña en la base de datos
     if (isset($_POST["ingresar"])){
         $dbhost="localhost";
         $dbuser="root";
