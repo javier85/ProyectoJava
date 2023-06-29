@@ -2,6 +2,9 @@
 $rutaCarpeta = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $rutaProyecto = explode("/", $rutaCarpeta);
 
+require_once $_SERVER['DOCUMENT_ROOT']. "/" . $rutaProyecto[1] .'/core/Connection.php';
+
+
 class Proveedor extends Connection
 {
     private $id;
@@ -15,6 +18,7 @@ class Proveedor extends Connection
         $this->direccion=$direccion;
         parent::__construct();
     }
+    /*
     public function getAll()
     {
         try
@@ -38,6 +42,29 @@ class Proveedor extends Connection
             die();
         }
     }
+    */
+    public function getAll()
+    {
+        try {
+            // FETCH_OBJ
+            $sql = $this->dbConnection->prepare("SELECT * FROM proveedores");
+
+            // Ejecutamos
+            $sql->execute();
+            $resultSet = null;
+            // Ahora vamos a indicar el fetch mode cuando llamamos a fetch:
+            while ($row = $sql->fetch(PDO::FETCH_OBJ)) {
+                $resultSet[] = $row;
+            }
+            return $resultSet;
+        } catch (PDOException $ex) {
+            echo '<div class="alert alert-danger container text-center" role="alert">
+        <strong>ERROR EN SISTEMA CONSULTE A SU TI MAS CERCANO</strong>
+    </div>';
+
+            die();
+        }
+    }
 
     //funciones get y set de los atributos
 
@@ -52,6 +79,11 @@ class Proveedor extends Connection
         return $this->nombre_proveedor;
     }
 
+    public function setid($id)
+    {
+        $this->id=$id;
+        return $this;
+    }
     public function setNombre($nombre_proveedor)
     {
         $this->nombre_proveedor=$nombre_proveedor;
@@ -69,6 +101,3 @@ class Proveedor extends Connection
         return $this;
     }
 }
-
-
-?>

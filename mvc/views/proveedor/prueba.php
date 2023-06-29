@@ -1,15 +1,15 @@
 <?php
-    include_once '../../controllers/ProveedorController.php';
+include_once '../../controllers/Proveedor.controllers.php';
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/main.css">
+
+
 </head>
 <body>
     <?php
@@ -47,21 +47,18 @@
             </div>
             <div class="col-1">
                 <a class="btn btn-primary btn-lg"
-                href="edit_proveedor.php?doc=<?php echo $item->documento; ?>" role="button">Editar</a>
+                href="edit_proveedor.php?doc=<?php echo $item->id; ?>" role="button">Editar</a>
             </div>
             <div class="col-1">
                 <a class="btn btn-danger btn-lg" href="#" role="button">Eliminar</a>
             </div>
         </div><br>
-        <?php }?>
+        <?php ?>
     </div>
     <br>
     <div class="container-fluid backg1">FOOTER</div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../../js/jquery-3.3.1.min.js"></script>
-    <script src="../../js/popper.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
+    <?php   
+     }
+    ?>
 </body>
 </html>

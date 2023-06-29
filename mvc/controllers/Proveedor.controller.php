@@ -1,8 +1,10 @@
 <?php
+
 $rutaCarpeta = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $rutaProyecto = explode("/", $rutaCarpeta);
 
-require_once $_SERVER['DOCUMENT_ROOT']. "/" . $rutaProyecto[1] .'/models/ProveedorModel.php';
+require_once $_SERVER['DOCUMENT_ROOT']. "/" . $rutaProyecto[1] .'/models/Proveedor.model.php';
+
 
 class ProveedorController extends Connection
 {
@@ -13,7 +15,7 @@ class ProveedorController extends Connection
         return $proveedores;
     }
 
-    public function select_proveedores()
+    public function select_proveedores($id)
     {
         // FETCH_OBJ
         $sql = $this->dbConnection->prepare("SELECT * FROM proveedores WHERE id = ?");
@@ -30,11 +32,5 @@ class ProveedorController extends Connection
             $pro_obj = null;
         }
         return $pro_obj; // Se retorna el objeto de proveedores
-
-
     }
 }
-
-
-
-?>

@@ -5,5 +5,3 @@ define("DB_NAME", "inventario"); // database name
 define("DB_USER", "root"); // database username
 define("DB_PASS", ""); // database password
 
-
-?>
